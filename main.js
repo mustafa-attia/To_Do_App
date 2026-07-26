@@ -12,12 +12,10 @@ var tasksList;
 if (localStorage.getItem("Tasks")) {
   tasksList = JSON.parse(localStorage.getItem("Tasks"));
   displayTasks(tasksList);
-  toggleEmptyState();
   updateCounters();
 } else {
   tasksList = [];
   displayTasks(tasksList);
-  toggleEmptyState();
   updateCounters();
 }
 
@@ -49,7 +47,6 @@ function addTasks() {
 
   addInput.value = "";
   displayTasks(tasksList);
-  toggleEmptyState();
   updateCounters();
   saveToLocalStorage();
 }
@@ -93,14 +90,6 @@ function displayTasks(tasks) {
         `;
   }
   tasksContainer.innerHTML = box;
-}
-
-function toggleEmptyState() {
-  if (tasksList.length === 0) {
-    notfoundText.classList.remove("d-none");
-  } else {
-    notfoundText.classList.add("d-none");
-  }
 }
 
 // delete tasks function
