@@ -56,6 +56,15 @@ function addTasks() {
 
 // Display tasks function
 function displayTasks(tasks) {
+  if (tasks.length === 0) {
+    tasksContainer.innerHTML = `
+      <p class="notfound-tasks py-3 text-warning">
+        There are no tasks to show
+      </p>
+    `;
+    return;
+  }
+
   var box = "";
   for (var i = 0; i < tasks.length; i++) {
     box += `
